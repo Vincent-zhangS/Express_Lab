@@ -8,7 +8,7 @@ app.use('/posts',postRouter);
 
 app.get('/', (req, res) => {
   console.log('Here');
-  res.render('index', { user: 'Vincent!' });
+  res.render('index', { user: 'Vincent!'});
 });
 
 app.listen(3030);
