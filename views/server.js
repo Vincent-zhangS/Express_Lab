@@ -5,6 +5,7 @@ const app = express();
 app.set('view engine', 'ejs');
 app.use('/users', userRouter);
 app.use('/posts',postRouter);
+app.use(logger);
 
 app.get('/', (req, res) => {
   console.log('Here');
@@ -12,3 +13,4 @@ app.get('/', (req, res) => {
 });
 
 app.listen(3030);
+
