@@ -1,16 +1,25 @@
-const express = require('express');
-const userRouter = require('./routes/users');
-const postRouter = require('./routes/posts');
+const express = require("express");
+const userRoutes = require("./routes/users");
+const postRoutes = require("./routes/posts");
 const app = express();
-app.set('view engine', 'ejs');
-app.use('/users', userRouter);
-app.use('/posts',postRouter);
-app.use(logger);
+app.set("view engine", "ejs");
+app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
+app.use("/users", userRoutes);
+app.use("/posts", postRoutes);
 
-app.get('/', (req, res) => {
-  console.log('Here');
-  res.render('index', { user: 'Vincent!'});
+
+app.get("/", (req, res) => {
+  console.log("here");
+  res.render("index", {user:"Vincent"});
 });
-
 app.listen(3030);
 
+app.get('/new', (req, res) => {
+  res.render('users/new', {firstName: "Please enter ur name"});
+});
+
+function logger(req, res, next) {
+  console.log(`page accessed: ${req.originalUrl}`);
+  next();
+}
