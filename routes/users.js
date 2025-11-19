@@ -9,10 +9,6 @@ router.get('/new', (req, res) => {
     res.render('users/new', {firstName: "Please enter a username"});
 });
 
-// router.post('/new', (req, res)=> {
-//     res.render('users/new', {firstName: "Please enter name"});
-// });
-
 router.post("/", (req, res) => {
     res.send("User Created!");
     const firstName = req.body.firstName;
