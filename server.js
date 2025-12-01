@@ -15,6 +15,10 @@ app.get("/", (req, res) => {
 });
 app.listen(3030);
 
+//app.get('/new', (req, res) => {
+//  res.render('users/new', {firstName: "Please enter ur name"});
+//});
+
 function logger(req, res, next) {
   console.log(`page accessed: ${req.originalUrl}`);
   next();
